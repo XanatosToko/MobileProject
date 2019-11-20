@@ -11,5 +11,10 @@
         <item name="android:screenOrientation">@string/app_orientation</item>
     </style>
 
+    <style name="AppTheme.PopUp" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
 
 </resources>

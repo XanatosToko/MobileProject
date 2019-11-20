@@ -1,5 +1,6 @@
 package com.example.nathantucker.justgames;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,5 +27,12 @@ public class ImagePageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ImageView image = view.findViewById(R.id.game_image);
         image.setImageResource(R.drawable.star_wars_image);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity().getApplicationContext(), PopUpActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }
