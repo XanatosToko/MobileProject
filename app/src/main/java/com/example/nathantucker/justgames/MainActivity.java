@@ -1,5 +1,6 @@
 package com.example.nathantucker.justgames;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -9,7 +10,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +40,14 @@ public class MainActivity extends FragmentActivity {
 
     private List<Fragment> mFragments;
 
+    //Overlay
+    private ImageView menuButton;
+    private TextView appNameText;
+    private ImageView likeButton;
+    private ImageView dislikeButton;
+    private LinearLayout sliderDotsPanel;
+    private ImageView[] dots;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +56,66 @@ public class MainActivity extends FragmentActivity {
         //set content view AFTER ABOVE sequence (to avoid crash)
         setContentView(R.layout.activity_main);
 
+        //Pager initialization
         mFragments = new ArrayList<Fragment>();
 
         mPager = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
         mPager.addOnPageChangeListener(new OnScreenChangeListener());
+
+        //Buttons overlay initialization
+        menuButton = findViewById(R.id.menu_icon);
+        appNameText = findViewById(R.id.app_name);
+        likeButton = findViewById(R.id.like_icon);
+        dislikeButton = findViewById(R.id.dislike_icon);
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO:Open list of saved games
+                CharSequence text = "Here are your saved games.";
+                Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO:Save to list and continue to another game
+                CharSequence text = "Game saved. Here's a new one.";
+                Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
+                toast.show();
+                loadNextGame();
+            }
+        });
+
+        dislikeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO:Continue to another game
+                CharSequence text = "Game not saved. Here's a new one.";
+                Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
+        //Slider dots initialization
+        sliderDotsPanel = findViewById(R.id.sliderDots);
+        dots = new ImageView[NUM_PAGES];
+
+        for(int i = 0; i < NUM_PAGES; i++){
+            dots[i] = new ImageView(this);
+            dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.inactive_dot));
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(8,10,8,10);
+
+            sliderDotsPanel.addView(dots[i], params);
+        }
+        dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.active_dot));
+
     }
 
     @Override
@@ -122,8 +190,18 @@ public class MainActivity extends FragmentActivity {
                 if (f instanceof VideoPageFragment) {
                     VideoPageFragment fVid = (VideoPageFragment)f;
                     fVid.reinitializeYoutubePlayer();
+                    //Reveal activity overlay
+                    showOverlay();
                 }
             }
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            for(int i = 0; i < NUM_PAGES; i++){
+                dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.inactive_dot));
+            }
+            dots[position].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.active_dot));
         }
 
         @Override
@@ -138,7 +216,18 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    //TODO: Dynamically grab the different videos
-    //TODO: Dynamically grab the different images
+    private void showOverlay(){
+        sliderDotsPanel.setVisibility(View.VISIBLE);
+        menuButton.setVisibility(View.VISIBLE);
+        appNameText.setVisibility(View.VISIBLE);
+        likeButton.setVisibility(View.VISIBLE);
+        dislikeButton.setVisibility(View.VISIBLE);
+    }
+
+    private void loadNextGame(){
+        //TODO: Dynamically grab the different videos
+
+        //TODO: Dynamically grab the different images
+    }
 
 }

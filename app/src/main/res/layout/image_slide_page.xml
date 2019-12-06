@@ -13,42 +13,18 @@
         android:layout_height="match_parent"
         android:src="@android:drawable/btn_dialog" />
 
-    <ImageView
-        android:id="@+id/menu_icon"
-        android:contentDescription="@string/menu_icon_description"
+    <TextView
+        android:id="@+id/titleDevText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/round_menu_white_36" />
-
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:elevation="5dp"
-        android:text="@string/app_name"
+        android:text="@string/default_text"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/like_icon"
-        android:contentDescription="@string/menu_icon_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/round_check_white_36" />
-
-    <ImageView
-        android:id="@+id/dislike_icon"
-        android:contentDescription="@string/menu_icon_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/round_close_white_36" />
 
 </RelativeLayout>

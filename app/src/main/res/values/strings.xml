@@ -7,12 +7,29 @@
     <string name="menu_icon_description">Menu Icon</string>
     <string name="game_video_description">Game Video</string>
     <string name="play_button_description">Play Button Image</string>
+    <string name="default_text">error: text uninitialized</string>
+    <string name="gameplay_text">Gameplay Video</string>
+    <string name="story_text">Story Video</string>
 
     <!-- Strings related to Youtube Videos -->
 
     <string name="default_video">dQw4w9WgXcQ</string>
+
+    <!-- Games -->
+    <string name="jedi_name">Star Wars Jedi: Fallen Order</string>
     <string name="jedi_story_video">xIl2z5wwjdA</string>
     <string name="jedi_gameplay_video">8939aURV9Dc</string>
+    <string name="jedi_text">Star Wars Jedi: Fallen Order\nRespawn Entertainment</string>
+
+    <string name="warframe_name">Warframe</string>
+    <string name="warframe_story_video">9O-yCnQKYhM</string>
+    <string name="warframe_gameplay_video">bkSk9NzH878</string>
+    <string name="warframe_text">Warframe\nDigital Extremes</string>
+
+    <string name="ds_name">Death Stranding</string>
+    <string name="ds_story_video">K09zxLiF5q0</string>
+    <string name="ds_gameplay_video">B_Ohy5cunl8</string>
+    <string name="ds_text">Death Stranding\nKojima Productions</string>
 
     <!-- Strings related to Settings -->
 

@@ -30,6 +30,6 @@ public class PopUpActivity extends AppCompatActivity {
         params.y = -20;
         getWindow().setAttributes(params);
 
-        //getWindow().setBackgroundDrawableResource(R.drawable.pop_bg);
+        //getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 }

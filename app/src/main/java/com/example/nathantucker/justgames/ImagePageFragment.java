@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,7 +27,8 @@ public class ImagePageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ImageView image = view.findViewById(R.id.game_image);
-        image.setImageResource(R.drawable.star_wars_image);
+        TextView text = view.findViewById(R.id.titleDevText);
+        image.setImageResource(Games.getInstance().getCurrentGame().getImageRes());
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,5 +36,6 @@ public class ImagePageFragment extends Fragment {
                 startActivity(i);
             }
         });
+        text.setText(Games.getInstance().getCurrentGame().getNameDev());
     }
 }

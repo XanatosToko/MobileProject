@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -13,6 +14,7 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragmentX;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 public class VideoPageFragment extends Fragment {
@@ -24,6 +26,8 @@ public class VideoPageFragment extends Fragment {
     private YouTubePlayerSupportFragmentX youTubePlayerFragment;
     private YouTubePlayer.OnInitializedListener onInitializedListener;
     private ImageView playButton;
+    private String videoType;
+    private TextView videoTypeText;
 
     public static VideoPageFragment newInstance(int index) {
 
@@ -42,12 +46,14 @@ public class VideoPageFragment extends Fragment {
         Bundle args = getArguments();
         int position = args.getInt("index", 0);
         if(position == 1){
-            videoLink = getString(R.string.jedi_gameplay_video);
+            videoLink = getString(Games.getInstance().getCurrentGame().getGameplayVideoRes());
+            videoType = getString(R.string.gameplay_text);
             containerId = R.id.youtube_fragment_container;
             layoutFileId = R.layout.video_slide_page;
         }
         else if(position == 2){
-            videoLink = getString(R.string.jedi_story_video);
+            videoLink = getString(Games.getInstance().getCurrentGame().getStoryVideoRes());
+            videoType = getString(R.string.story_text);
             containerId = R.id.youtube_fragment_container_two;
             layoutFileId = R.layout.video_slide_page_two;
         }
@@ -63,6 +69,8 @@ public class VideoPageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         playButton = getView().findViewById(R.id.playImageView);
+        videoTypeText = getView().findViewById(R.id.videoType);
+        videoTypeText.setText(videoType);
 
         youTubePlayerFragment = YouTubePlayerSupportFragmentX.newInstance();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -85,7 +93,16 @@ public class VideoPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 youTubePlayerFragment.initialize(PlayerConfig.API_KEY,onInitializedListener);
+                //Hide fragment overlay
                 playButton.setVisibility(View.GONE);
+                videoTypeText.setVisibility(View.GONE);
+                //Hide activity overlay
+                FragmentActivity parent = getActivity();
+                parent.findViewById(R.id.sliderDots).setVisibility(View.GONE);
+                parent.findViewById(R.id.menu_icon).setVisibility(View.GONE);
+                parent.findViewById(R.id.app_name).setVisibility(View.GONE);
+                parent.findViewById(R.id.like_icon).setVisibility(View.GONE);
+                parent.findViewById(R.id.dislike_icon).setVisibility(View.GONE);
             }
         });
 
@@ -96,6 +113,8 @@ public class VideoPageFragment extends Fragment {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(containerId, youTubePlayerFragment);
         transaction.commit();
+        //Reveal fragment overlay
         playButton.setVisibility(View.VISIBLE);
+        videoTypeText.setVisibility(View.VISIBLE);
     }
 }
