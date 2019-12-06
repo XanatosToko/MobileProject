@@ -22,6 +22,7 @@ public class Games {
                     R.string.warframe_gameplay_video,
                     R.drawable.warframe_image)
     };
+    private GameProfile[] savedGames = new GameProfile[NUM_GAMES];
 
     public static Games getInstance() {
         return mInstance;
@@ -49,5 +50,9 @@ public class Games {
             }
         }
         return allGames[0]; //default
+    }
+
+    public void saveCurrentGame(){
+        savedGames[currentIndex] = allGames[currentIndex];
     }
 }

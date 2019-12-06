@@ -1,5 +1,6 @@
 package com.example.nathantucker.justgames;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -38,7 +39,7 @@ public class MainActivity extends FragmentActivity {
      */
     private PagerAdapter pagerAdapter;
 
-    private List<Fragment> mFragments;
+    final ArrayList<String> titles = new ArrayList<>();
 
     //Overlay
     private ImageView menuButton;
@@ -57,8 +58,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         //Pager initialization
-        mFragments = new ArrayList<Fragment>();
-
         mPager = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
@@ -83,10 +82,10 @@ public class MainActivity extends FragmentActivity {
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO:Save to list and continue to another game
                 CharSequence text = "Game saved. Here's a new one.";
                 Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
                 toast.show();
+                saveGame();
                 loadNextGame();
             }
         });
@@ -94,10 +93,10 @@ public class MainActivity extends FragmentActivity {
         dislikeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO:Continue to another game
                 CharSequence text = "Game not saved. Here's a new one.";
                 Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
                 toast.show();
+                loadNextGame();
             }
         });
 
@@ -130,14 +129,6 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    public void startTrackingFragment(Fragment f, int position) {
-        mFragments.add(position, f);
-    }
-
-    public void stopTrackingFragment(int position) {
-        mFragments.remove(position);
-    }
-
     /**
      * A simple pager adapter that represents NUM_PAGES ScreenSlidePageFragment objects, in
      * sequence.
@@ -154,7 +145,7 @@ public class MainActivity extends FragmentActivity {
             Fragment f;
             if(position == 0) f = new ImagePageFragment();
             else f = VideoPageFragment.newInstance(position);
-            startTrackingFragment(f, position);
+            //startTrackingFragment(f, position);
             return f;
         }
 
@@ -162,10 +153,11 @@ public class MainActivity extends FragmentActivity {
         public int getCount() {
             return NUM_PAGES;
         }
-    }
 
-    private Fragment getCurrentItem(int position) {
-        return mFragments.get(position);
+        @Override
+        public int getItemPosition(@NonNull Object object) {
+            return POSITION_NONE;
+        }
     }
 
     private class OnScreenChangeListener extends ViewPager.SimpleOnPageChangeListener {
@@ -225,9 +217,24 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void loadNextGame(){
-        //TODO: Dynamically grab the different videos
+        Games.getInstance().changeCurrentGame();
+        for(int i = 0; i < NUM_PAGES; i++){
+            pagerAdapter.notifyDataSetChanged();
+//            Fragment f = (Fragment) pagerAdapter.instantiateItem(mPager, i);
+//            if (f instanceof VideoPageFragment) {
+//                VideoPageFragment fVid = (VideoPageFragment)f;
+//                fVid.reloadPage();
+//                //Reveal activity overlay
+//                showOverlay();
+//            } else {
+//                ImagePageFragment fImg = (ImagePageFragment)f;
+//                fImg.reloadPage();
+//            }
+        }
+    }
 
-        //TODO: Dynamically grab the different images
+    private void saveGame(){
+        Games.getInstance().saveCurrentGame();
     }
 
 }

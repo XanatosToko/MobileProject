@@ -80,7 +80,7 @@ public class VideoPageFragment extends Fragment {
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo(videoLink); //TODO: Dynamically grab the different videos
+                youTubePlayer.loadVideo(videoLink);
             }
 
             @Override
