@@ -33,6 +33,9 @@
         <activity android:name=".PopUpActivity"
             android:theme="@style/AppTheme.PopUp">
         </activity>
+        <activity android:name=".ListActivity"
+            android:theme="@style/AppTheme.PopUp">
+        </activity>
     </application>
 
 </manifest>

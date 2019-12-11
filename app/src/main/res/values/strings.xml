@@ -16,20 +16,53 @@
     <string name="default_video">dQw4w9WgXcQ</string>
 
     <!-- Games -->
+
     <string name="jedi_name">Star Wars Jedi: Fallen Order</string>
     <string name="jedi_story_video">xIl2z5wwjdA</string>
     <string name="jedi_gameplay_video">8939aURV9Dc</string>
     <string name="jedi_text">Star Wars Jedi: Fallen Order\nRespawn Entertainment</string>
+    
+    <string name="jedi_playerType">Single-Player</string>
+    <string name="jedi_genre">Genre: Action-Adventure</string>
+    <string name="jedi_rating">Rating: T</string>
+    <string name="jedi_time">Time to Complete: 21 hours</string>
+    <string name="jedi_developer">Developer: Respawn Entertainment</string>
+    <string name="jedi_publisher">Publisher: Electronic Arts</string>
+    <string name="jedi_alsoLiked">Players also liked:\nThe Force Unleashed\nUncharted 4\nStar Wars: Battlefront 2</string>
+    <string name="jedi_platforms">PC\nPlayStation 4\nXbox One</string>
+    <string name="jedi_stores">Steam (PC)\nOrigin (PC)\nBest Buy\nWalmart\nAmazon</string>
+
 
     <string name="warframe_name">Warframe</string>
     <string name="warframe_story_video">9O-yCnQKYhM</string>
     <string name="warframe_gameplay_video">bkSk9NzH878</string>
     <string name="warframe_text">Warframe\nDigital Extremes</string>
 
+    <string name="warframe_playerType">Online Co-op/Single-Player</string>
+    <string name="warframe_genre">Genre: Action-Shooter</string>
+    <string name="warframe_rating">Rating: M</string>
+    <string name="warframe_time">Time to Complete: N/A</string>
+    <string name="warframe_developer">Developer: Digital Extremes</string>
+    <string name="warframe_publisher">Publisher: Digital Extremes</string>
+    <string name="warframe_alsoLiked">Players also liked:\nDestiny 2\nTeam Fortress 2\nPlanetSide 2</string>
+    <string name="warframe_platforms">PC\nPlayStation 4\nXbox One\nNintendo Switch</string>
+    <string name="warframe_stores">Free-to-play</string>
+
+
     <string name="ds_name">Death Stranding</string>
     <string name="ds_story_video">K09zxLiF5q0</string>
     <string name="ds_gameplay_video">B_Ohy5cunl8</string>
     <string name="ds_text">Death Stranding\nKojima Productions</string>
+
+    <string name="ds_playerType">Single-Player</string>
+    <string name="ds_genre">Genre: Action/Narrative</string>
+    <string name="ds_rating">Rating: M</string>
+    <string name="ds_time">Time to Complete: 50 hours</string>
+    <string name="ds_developer">Developer: Kojima Productions</string>
+    <string name="ds_publisher">Publisher: Sony (PS4)</string>
+    <string name="ds_alsoLiked">Players also liked:\nMetal Gear Solid V\nThe Witcher 3: Wild Hunt\nRed Dead Redemption 2</string>
+    <string name="ds_platforms">PlayStation 4</string>
+    <string name="ds_stores">Best Buy\nWalmart\nAmazon</string>
 
     <!-- Strings related to Settings -->
 
@@ -102,4 +135,11 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="about_heading">About</string>
+    <string name="reviews_heading">Critic Reviews</string>
+    <string name="user_reviews_heading">Player Reviews</string>
+    <string name="platform_heading">Where To Play</string>
+    <string name="buying_heading">Where To Get</string>
+
+    <string name="liked_games">Saved Games</string>
 </resources>

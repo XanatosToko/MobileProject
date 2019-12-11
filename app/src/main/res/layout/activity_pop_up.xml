@@ -16,10 +16,23 @@
         android:layout_weight="27">
 
         <ImageView
+            android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
             android:layout_alignParentLeft="true"
             app:srcCompat="@drawable/round_arrow_back_black_36" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/default_text"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -34,13 +47,76 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="75">
 
             <TextView
-                android:id="@+id/aboutHeadingView"
+                android:id="@+id/aboutHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/about_heading"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="@string/default_text" />
+
+            <TextView
+                android:id="@+id/genreView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="@string/default_text" />
+
+            <TextView
+                android:id="@+id/ratingView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="@string/default_text" />
+
+            <TextView
+                android:id="@+id/timeView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="@string/default_text" />
+
+            <TextView
+                android:id="@+id/developerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="@string/default_text" />
+
+            <TextView
+                android:id="@+id/publisherView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="@string/default_text" />
+
+            <TextView
+                android:id="@+id/alsoLikedView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="@string/default_text" />
         </LinearLayout>
 
         <View
@@ -57,13 +133,45 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="75">
 
             <TextView
                 android:id="@+id/reviewsHeadingView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/reviews_heading"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/reviewScoreImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@android:drawable/btn_dialog" />
+
+            <TextView
+                android:id="@+id/usersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/user_reviews_heading"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/userScoreImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:srcCompat="@android:drawable/btn_dialog" />
         </LinearLayout>
 
         <View
@@ -80,13 +188,45 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="75">
+
+            <TextView
+                android:id="@+id/platformHeadingView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/platform_heading"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/platformsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/default_text" />
 
             <TextView
                 android:id="@+id/buyingHeadingView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/buying_heading"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/storesView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/default_text" />
         </LinearLayout>
 
     </LinearLayout>

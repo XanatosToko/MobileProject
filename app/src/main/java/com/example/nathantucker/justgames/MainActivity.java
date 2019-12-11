@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -72,10 +73,11 @@ public class MainActivity extends FragmentActivity {
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO:Open list of saved games
                 CharSequence text = "Here are your saved games.";
                 Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
                 toast.show();
+                Intent i = new Intent(getApplicationContext(), ListActivity.class);
+                startActivityForResult(i,0);
             }
         });
 
@@ -115,6 +117,18 @@ public class MainActivity extends FragmentActivity {
         }
         dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.active_dot));
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 0){
+            if(resultCode == RESULT_OK){
+                //Game selected, need to refresh
+                loadGame();
+            }
+        }
     }
 
     @Override
@@ -218,18 +232,12 @@ public class MainActivity extends FragmentActivity {
 
     private void loadNextGame(){
         Games.getInstance().changeCurrentGame();
+        loadGame();
+    }
+
+    private void loadGame(){
         for(int i = 0; i < NUM_PAGES; i++){
             pagerAdapter.notifyDataSetChanged();
-//            Fragment f = (Fragment) pagerAdapter.instantiateItem(mPager, i);
-//            if (f instanceof VideoPageFragment) {
-//                VideoPageFragment fVid = (VideoPageFragment)f;
-//                fVid.reloadPage();
-//                //Reveal activity overlay
-//                showOverlay();
-//            } else {
-//                ImagePageFragment fImg = (ImagePageFragment)f;
-//                fImg.reloadPage();
-//            }
         }
     }
 
