@@ -14,7 +14,7 @@ public class Games {
     }
 
     private boolean isRevisit = false;
-    private int NUM_GAMES = 3;
+    private int NUM_GAMES = 6;
     private int currentIndex = 0;
     private GameProfile[] allGames = {
             new GameProfile(R.string.jedi_name,
@@ -64,9 +64,58 @@ public class Games {
                     R.drawable.warframe_review,
                     R.drawable.warframe_user,
                     R.string.warframe_platforms,
-                    R.string.warframe_stores)
+                    R.string.warframe_stores),
+            new GameProfile(R.string.smash_name,
+                    R.string.smash_text,
+                    R.string.smash_story_video,
+                    R.string.smash_gameplay_video,
+                    R.drawable.smash_image,
+                    R.string.smash_playerType,
+                    R.string.smash_genre,
+                    R.string.smash_rating,
+                    R.string.smash_time,
+                    R.string.smash_developer,
+                    R.string.smash_publisher,
+                    R.string.smash_alsoLiked,
+                    R.drawable.smash_review,
+                    R.drawable.smash_user,
+                    R.string.smash_platforms,
+                    R.string.smash_stores),
+            new GameProfile(R.string.goose_name,
+                    R.string.goose_text,
+                    R.string.goose_story_video,
+                    R.string.goose_gameplay_video,
+                    R.drawable.goose_image,
+                    R.string.goose_playerType,
+                    R.string.goose_genre,
+                    R.string.goose_rating,
+                    R.string.goose_time,
+                    R.string.goose_developer,
+                    R.string.goose_publisher,
+                    R.string.goose_alsoLiked,
+                    R.drawable.goose_review,
+                    R.drawable.goose_user,
+                    R.string.goose_platforms,
+                    R.string.goose_stores),
+            new GameProfile(R.string.stardew_name,
+                    R.string.stardew_text,
+                    R.string.stardew_story_video,
+                    R.string.stardew_gameplay_video,
+                    R.drawable.stardew_image,
+                    R.string.stardew_playerType,
+                    R.string.stardew_genre,
+                    R.string.stardew_rating,
+                    R.string.stardew_time,
+                    R.string.stardew_developer,
+                    R.string.stardew_publisher,
+                    R.string.stardew_alsoLiked,
+                    R.drawable.stardew_review,
+                    R.drawable.stardew_user,
+                    R.string.stardew_platforms,
+                    R.string.stardew_stores)
     };
     private GameProfile[] savedGames = new GameProfile[NUM_GAMES];
+    private int savedGamesNum = 0;
 
     public static Games getInstance() {
         return mInstance;
@@ -77,9 +126,12 @@ public class Games {
 
     public void changeCurrentGame(){
         int i;
+//        i = currentIndex;
+//        i++;
+//        if(i >= NUM_GAMES) currentIndex = 0; //return to start of list
         do{
             i = (int)(NUM_GAMES*Math.random());
-        } while(i == currentIndex); //Do until changed
+        } while(i == currentIndex || (savedGames[i] != null && savedGamesNum != NUM_GAMES)); //Do until changed and not in saved already
         currentIndex = i;
     }
 
@@ -97,7 +149,10 @@ public class Games {
     }
 
     public void saveCurrentGame(){
-        savedGames[currentIndex] = allGames[currentIndex];
+        if(savedGames[currentIndex] == null){
+            savedGames[currentIndex] = allGames[currentIndex];
+            savedGamesNum++;
+        }
     }
 
     public GameProfile[] getSavedGames(){

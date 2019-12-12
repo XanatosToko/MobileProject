@@ -59,10 +59,58 @@
     <string name="ds_rating">Rating: M</string>
     <string name="ds_time">Time to Complete: 50 hours</string>
     <string name="ds_developer">Developer: Kojima Productions</string>
-    <string name="ds_publisher">Publisher: Sony (PS4)</string>
+    <string name="ds_publisher">Publisher: Sony</string>
     <string name="ds_alsoLiked">Players also liked:\nMetal Gear Solid V\nThe Witcher 3: Wild Hunt\nRed Dead Redemption 2</string>
     <string name="ds_platforms">PlayStation 4</string>
     <string name="ds_stores">Best Buy\nWalmart\nAmazon</string>
+
+
+    <string name="smash_name">Super Smash Bros. Ultimate</string>
+    <string name="smash_story_video">WShCN-AYHqA</string>
+    <string name="smash_gameplay_video">WLu7e8RZoYc</string>
+    <string name="smash_text">Super Smash Bros. Ultimate\nNintendo</string>
+
+    <string name="smash_playerType">Up to 8 players</string>
+    <string name="smash_genre">Genre: Fighting</string>
+    <string name="smash_rating">Rating: E10+</string>
+    <string name="smash_time">Time to Complete: N/A</string>
+    <string name="smash_developer">Developer: Nintendo</string>
+    <string name="smash_publisher">Publisher: Nintendo</string>
+    <string name="smash_alsoLiked">Players also liked:\nLuigi\'s Mansion 3\nPokken Tournament\nTowerfall</string>
+    <string name="smash_platforms">Nintendo Switch</string>
+    <string name="smash_stores">Best Buy\nTarget\nGamestop\nAmazon</string>
+
+
+    <string name="goose_name">Untitled Goose Game</string>
+    <string name="goose_story_video">fA1Mfh3LXs4</string>9LL2AtHo1gk
+    <string name="goose_gameplay_video">9LL2AtHo1gk</string>
+    <string name="goose_text">Untitled Goose Game\nHouse House</string>
+
+    <string name="goose_playerType">Single-Player</string>
+    <string name="goose_genre">Genre: Simulation/Puzzle</string>
+    <string name="goose_rating">Rating: E</string>
+    <string name="goose_time">Time to Complete: 3 hours</string>
+    <string name="goose_developer">Developer: House House</string>
+    <string name="goose_publisher">Publisher: Panic Inc.</string>
+    <string name="goose_alsoLiked">Players also liked:\nThe Witness\nTetris\nSSB Ultimate</string>
+    <string name="goose_platforms">Switch\nPC</string>
+    <string name="goose_stores">Gamestop\nTarget\nEpic Games Store (PC)</string>
+
+
+    <string name="stardew_name">Stardew Valley</string>
+    <string name="stardew_story_video">ot7uXNQskhs</string>
+    <string name="stardew_gameplay_video">BMQxtCUmvXQ</string>
+    <string name="stardew_text">ConcernedApe\nChucklefish</string>
+
+    <string name="stardew_playerType">Single-player/Local Co-op</string>
+    <string name="stardew_genre">Genre: RPG/Simulation</string>
+    <string name="stardew_rating">Rating: E10+</string>
+    <string name="stardew_time">Time to Complete: 80 hours</string>
+    <string name="stardew_developer">Developer: Eric \'ConcernedApe\' Barone</string>
+    <string name="stardew_publisher">Publisher: Chucklefish</string>
+    <string name="stardew_alsoLiked">Players also liked:\n\nThe Witcher 3: Wild Hunt\nRed Dead Redemption 2</string>
+    <string name="stardew_platforms">PC, Mac, Linux\nHome Consoles\nPlayStation Vita\nAndroid, iOS</string>
+    <string name="stardew_stores">Target\nGOG.com\nWalmart\nBest Buy\nand more!</string>
 
     <!-- Strings related to Settings -->
 
