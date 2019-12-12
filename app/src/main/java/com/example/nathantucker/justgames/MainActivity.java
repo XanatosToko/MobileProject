@@ -73,9 +73,6 @@ public class MainActivity extends FragmentActivity {
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CharSequence text = "Here are your saved games.";
-                Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
-                toast.show();
                 Intent i = new Intent(getApplicationContext(), ListActivity.class);
                 startActivityForResult(i,0);
             }
@@ -84,6 +81,7 @@ public class MainActivity extends FragmentActivity {
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideOverlay();
                 CharSequence text = "Game saved. Here's a new one.";
                 Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
                 toast.show();
@@ -95,6 +93,7 @@ public class MainActivity extends FragmentActivity {
         dislikeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideOverlay();
                 CharSequence text = "Game not saved. Here's a new one.";
                 Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
                 toast.show();
@@ -124,9 +123,12 @@ public class MainActivity extends FragmentActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == 0){
+            hideOverlay();
             if(resultCode == RESULT_OK){
                 //Game selected, need to refresh
                 loadGame();
+            }else{
+                loadNextGame();
             }
         }
     }
@@ -226,8 +228,21 @@ public class MainActivity extends FragmentActivity {
         sliderDotsPanel.setVisibility(View.VISIBLE);
         menuButton.setVisibility(View.VISIBLE);
         appNameText.setVisibility(View.VISIBLE);
-        likeButton.setVisibility(View.VISIBLE);
-        dislikeButton.setVisibility(View.VISIBLE);
+        if(!Games.getInstance().isRevisit()){
+            likeButton.setVisibility(View.VISIBLE);
+            dislikeButton.setVisibility(View.VISIBLE);
+        }else{
+            likeButton.setVisibility(View.GONE);
+            dislikeButton.setVisibility(View.GONE);
+        }
+    }
+
+    public void hideOverlay(){
+        sliderDotsPanel.setVisibility(View.GONE);
+        menuButton.setVisibility(View.GONE);
+        appNameText.setVisibility(View.GONE);
+        likeButton.setVisibility(View.GONE);
+        dislikeButton.setVisibility(View.GONE);
     }
 
     private void loadNextGame(){
@@ -239,6 +254,7 @@ public class MainActivity extends FragmentActivity {
         for(int i = 0; i < NUM_PAGES; i++){
             pagerAdapter.notifyDataSetChanged();
         }
+        showOverlay();
     }
 
     private void saveGame(){

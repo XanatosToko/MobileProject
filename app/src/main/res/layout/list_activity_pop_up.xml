@@ -36,73 +36,92 @@
 
     </RelativeLayout>
 
-    <TextView
+    <Button
         android:id="@+id/list_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
-        android:text="No games saved yet"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
+        android:text="NO GAMES SAVED YET"
+        android:textAllCaps="false"
         android:textStyle="bold|italic" />
 
-    <TextView
+    <Button
         android:id="@+id/list_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
         android:text=""
         android:textAllCaps="false"
         android:textStyle="bold|italic" />
 
-    <TextView
+    <Button
         android:id="@+id/list_three"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
         android:text=""
         android:textAllCaps="false"
         android:textStyle="bold|italic" />
 
-    <TextView
+    <Button
         android:id="@+id/list_four"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
         android:text=""
         android:textAllCaps="false"
         android:textStyle="bold|italic" />
 
-    <TextView
+    <Button
         android:id="@+id/list_five"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
         android:text=""
         android:textAllCaps="false"
         android:textStyle="bold|italic" />
 
-    <TextView
+    <Button
         android:id="@+id/list_six"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
         android:text=""
         android:textAllCaps="false"
         android:textStyle="bold|italic" />

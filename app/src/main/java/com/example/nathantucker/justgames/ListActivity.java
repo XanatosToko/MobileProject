@@ -37,6 +37,9 @@ public class ListActivity extends AppCompatActivity {
 
         //getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+        //Reset viewing type
+        Games.getInstance().setRevisit(false);
+
         //View initialization
         backButton = findViewById(R.id.backButton);
         listTextViews = new TextView[]{findViewById(R.id.list_one),
@@ -60,15 +63,26 @@ public class ListActivity extends AppCompatActivity {
                 currentEndList++;
             }
         }
+        int endOfGames = currentEndList;
+        if(currentEndList < 5){
+            if(currentEndList == 0){
+                listTextViews[currentEndList].setClickable(false);
+                currentEndList++;
+            }
+            for(; currentEndList < 6; currentEndList++){
+                listTextViews[currentEndList].setVisibility(View.INVISIBLE);
+            }
+        }
 
         //Set Up Listeners
-        for(int i = 0; i < currentEndList; i++){
+        for(int i = 0; i < endOfGames; i++){
             listTextViews[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     TextView textView = (TextView)v;
                     String string = textView.getText().toString();
                     Games.getInstance().setCurrentGame(getApplicationContext(), string);
+                    Games.getInstance().setRevisit(true);
                     setResult(RESULT_OK);
                     onBackPressed();
                 }

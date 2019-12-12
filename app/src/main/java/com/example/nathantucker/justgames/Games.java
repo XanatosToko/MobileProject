@@ -5,6 +5,15 @@ import android.content.Context;
 public class Games {
     private static final Games mInstance = new Games();
 
+    public boolean isRevisit() {
+        return isRevisit;
+    }
+
+    public void setRevisit(boolean revisit) {
+        isRevisit = revisit;
+    }
+
+    private boolean isRevisit = false;
     private int NUM_GAMES = 3;
     private int currentIndex = 0;
     private GameProfile[] allGames = {

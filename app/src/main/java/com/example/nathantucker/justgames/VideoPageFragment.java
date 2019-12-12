@@ -97,12 +97,8 @@ public class VideoPageFragment extends Fragment {
                 playButton.setVisibility(View.GONE);
                 videoTypeText.setVisibility(View.GONE);
                 //Hide activity overlay
-                FragmentActivity parent = getActivity();
-                parent.findViewById(R.id.sliderDots).setVisibility(View.GONE);
-                parent.findViewById(R.id.menu_icon).setVisibility(View.GONE);
-                parent.findViewById(R.id.app_name).setVisibility(View.GONE);
-                parent.findViewById(R.id.like_icon).setVisibility(View.GONE);
-                parent.findViewById(R.id.dislike_icon).setVisibility(View.GONE);
+                MainActivity parent = (MainActivity) getActivity();
+                if(parent != null) parent.hideOverlay();
             }
         });
 
